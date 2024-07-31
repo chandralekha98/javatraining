@@ -1,0 +1,68 @@
+<html>
+<head>
+<h2>Registration Form</h2>
+<style>
+h2 {
+	text-align: center;
+	color: red;
+	margin-bottom: 20px;
+}
+.mainheading{
+	color: blue;
+}
+div {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+	<div class="mainheading">
+		<div>
+			Name: <input id="name" type="text" name="name"/>
+		</div>
+		<div>
+			Gender: Female:<input type="radio" value="female" name="gender" /> 
+					Male:<input	type="radio" value="male" name="gender"/>
+		</div>
+		<div>
+			Education: Maters:<input type="checkbox" name="education" value="masters" /> 
+					   Bachelors:<input type="checkbox" name="education" value="bachelors" /> 
+					   HighSchool:<input type="checkbox" name="education" value="HighSchool" />
+		</div>
+		<div>
+			DOB: <input type="date" />
+		</div>
+		<div>
+			<input onclick="validateForm();" type="submit" name="Register"/>
+		</div>
+	</div>
+</body>
+
+<script>
+function validateForm() {
+    var name = document.getElementById("name").value;
+    if (name === "") {
+        alert("Name must be filled out");
+    }
+    else{
+    	console.log("Name entered: " + name);
+	}
+    var gender = document.querySelector('input[name="gender"]:checked');
+    if (gender) {
+        console.log("Gender selected is: " + gender);
+    } else if(!gender){
+        alert("Please select a gender");
+    }
+    var education = document.querySelectorAll('input[name="education"]:checked');
+    if (education.length > 0) {
+        console.log("Education selected");
+    } else {
+        alert("Please select at least one education option");
+    }
+}
+		
+	</script>
+
+</html>
